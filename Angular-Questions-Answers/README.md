@@ -56,7 +56,10 @@ I have splited topics based on angular fundamentals.
 
 
 
-References :
+#### References :
 
 1. [https://github.com/Yonet/Angular-Interview-Questions](https://github.com/Yonet/Angular-Interview-Questions)
-2. 
+2. [https://www.code-sample.com/2017/08/angular-5-interview-questions-and.html](https://www.code-sample.com/2017/08/angular-5-interview-questions-and.html)
+3. @balramchavan(medium.com) - [Set 1](https://medium.com/@balramchavan/angular-2-4-5-and-6-interview-questions-set-1-a632b9dec579), [Set 2](https://medium.com/@balramchavan/angular-2-4-5-and-6-interview-questions-set-2-d9a5aaf743e0), [Set 3](https://medium.com/@balramchavan/angular-2-4-5-and-6-interview-questions-set-3-cbf84979a801), [Set 4](https://medium.com/@balramchavan/angular-2-4-5-and-6-interview-questions-set-4-7ab351d4488b)
+4. [http://www.javadomain.in/angular-interview-questions-answers-quiz/](http://www.javadomain.in/angular-interview-questions-answers-quiz/)
+
