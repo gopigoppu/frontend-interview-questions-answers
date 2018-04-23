@@ -1,4 +1,8 @@
-# HTML Questions and Answers
+# HTML Interview Questions and Answers
+
+ **Note : Pull requests for suggestions and corrections are welcome!**
+
+## HTML Questions
 
 1. Is HTML case sensitive?
 2. What is doctype in HTML?
@@ -38,3 +42,7 @@
 32. What is progressive rendering?
 33. Why you would use a srcset attribute in an image tag? Explain the process the browser uses when evaluating the content of this attribute.
 34. Have you used different HTML templating languages before?
+
+
+## Answers
+
