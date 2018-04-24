@@ -60,9 +60,3 @@
 
 
 
-
-
-
-### References : 
-
-* [https://github.com/yangshun/front-end-interview-handbook/blob/master/questions/css-questions.md](https://github.com/yangshun/front-end-interview-handbook/blob/master/questions/css-questions.md)
