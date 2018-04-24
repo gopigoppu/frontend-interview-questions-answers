@@ -7,7 +7,7 @@ I have splited topics based on angular fundamentals.
 ## Table of Contents
 
 1. [Architecture Questions](#architecture-questions)
-2. [Components, Pipes, Directives, Services & Templates Questions](#components--templates-questions)
+2. [Components, Pipes, Directives, Services & Templates Questions](#components-pipes-directives-services--templates-questions)
 3. [Forms Questions](#forms-questions)
 4. [Observables & RxJS Questions](#observables--rxjs-questions)
 5. [NgModules Questions](#ngmodules-questions)
