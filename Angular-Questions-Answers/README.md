@@ -26,7 +26,7 @@ I have splited topics based on angular fundamentals.
 1. How angular app bootstraps?
 
 
-### Components, State management & Templates Questions,
+### Component Interaction & Templates Questions,
 
 1. How to pass data between one component to another? How the changes will trigger while passing data?
 2. You have 2 dropdowns. Based on one dropdown selection, you have to render response in another dropdown. How do you achieve?
