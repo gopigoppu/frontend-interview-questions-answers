@@ -353,3 +353,101 @@ References :
 * [https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#Attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#Attributes)
 * [https://www.w3schools.com/html/html_form_attributes.asp](https://www.w3schools.com/html/html_form_attributes.asp)
 
+### 18. What are all new elements in HTML5?
+
+There are plenty of new elements are introduced in HTML5. Please refer this link for detailed explanation.
+
+References :
+
+* [https://www.w3schools.com/html/html5_new_elements.asp](https://www.w3schools.com/html/html5_new_elements.asp)
+
+### 19. What are semantic elements and Why we need it? What are all new semantic elements in HTML5?
+
+A semantic element clearly describes its meaning to both the browser and the developer.
+
+Examples of non-semantic elements: `<div>` and `<span>` - Tells nothing about its content.
+
+Examples of semantic elements: `<form>, <table>, <article>` - Clearly defines its content.
+
+New Semantic Elements in HTML5 : 
+
+    <article>
+    <aside>
+    <details>
+    <figcaption>
+    <figure>
+    <footer>
+    <header>
+    <main>
+    <mark>
+    <nav>
+    <section>
+    <summary>
+    <time>
+
+References : 
+
+* [https://www.w3schools.com/html/html5_semantic_elements.asp](https://www.w3schools.com/html/html5_semantic_elements.asp)
+* [https://stackoverflow.com/questions/17272019/why-to-use-html5-semantic-tag-instead-of-div](https://stackoverflow.com/questions/17272019/why-to-use-html5-semantic-tag-instead-of-div)
+
+### 20. What is contenteditable attribute? What does it do?
+
+contenteditable - global attribute is an enumerated attribute indicating if the element should be editable by the user. If so, the browser modifies its widget to allow editing. The attribute must take one of the following values:
+
+`true` or the empty string, which indicates that the element must be editable;
+`false`, which indicates that the element must not be editable.
+
+```html
+<p contenteditable="true">This is an editable paragraph.</p>
+```
+
+References : 
+
+* [https://www.w3schools.com/tags/att_global_contenteditable.asp](https://www.w3schools.com/tags/att_global_contenteditable.asp)
+* [https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/contenteditable](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/contenteditable)
+
+### 21. What is canvas and svg ? How it differs?
+
+* The HTML `<svg>` element is a container for SVG graphics. SVG has several methods for drawing paths, boxes, circles, text, and graphic images.
+
+```html
+<svg width="100" height="100">
+  <circle cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="yellow" />
+</svg>
+```
+* `<canvas>` element is used to draw graphics, on the fly, via JavaScript. The `<canvas>` element is only a container for graphics. You must use JavaScript to actually draw the graphics.
+
+```html
+<canvas id="myCanvas" width="200" height="100" style="border:1px solid #d3d3d3;">
+Your browser does not support the HTML5 canvas tag.</canvas>
+
+<script>
+var c = document.getElementById("myCanvas");
+var ctx = c.getContext("2d");
+// Create gradient
+var grd = ctx.createLinearGradient(0,0,200,0);
+grd.addColorStop(0,"red");
+grd.addColorStop(1,"white");
+// Fill with gradient
+ctx.fillStyle = grd;
+ctx.fillRect(10,10,150,80);
+</script>
+```
+
+
+| SVG | Canvas |
+| ---- | ----- |
+|Here’s it’s like draw and remember. In other words any shape drawn by using SVG can be remembered and manipulated and browser can render it again. | Canvas is like draw and forget. Once something is drawn you cannot access that pixel and manipulate it.|
+|SVG is good for creating graphics like CAD software’s where once something is drawn the user wants to manipulate it. | Canvas is good for draw and forget scenarios like animation and games. |
+| This is slow as it needs to remember the co-ordinates for later manipulations. | This is faster as there is no intention of remembering things later. |
+| We can have event handler associated with the drawing object. | Here we cannot associate event handlers with drawing objects as we do not have reference of them. |
+| Resolution independent. | Resolution dependent. |
+
+
+References : 
+
+* [https://www.w3schools.com/html/html5_svg.asp](https://www.w3schools.com/html/html5_svg.asp)
+* [https://www.w3schools.com/html/html5_canvas.asp](https://www.w3schools.com/html/html5_canvas.asp)
+* [http://www.xpode.com/ShowArticle.aspx?ArticleId=690](http://www.xpode.com/ShowArticle.aspx?ArticleId=690)
+
+### 22. What is HTML Plug-ins? What does option and embed elements do?
