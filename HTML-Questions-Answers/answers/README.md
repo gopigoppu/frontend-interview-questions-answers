@@ -1,7 +1,7 @@
 # HTML Question Answers.
 
 
-#### 1. Is HTML case sensitive?
+### 1. Is HTML case sensitive?
 
 HTML is case insenstivie. But it is good practice to keep HTML markup lowercase. 
 
@@ -12,7 +12,7 @@ References :
 
 * [https://www.w3.org/TR/xhtml1/#h-4.2](https://www.w3.org/TR/xhtml1/#h-4.2)
 
-#### 2. What is doctype in HTML?
+### 2. What is doctype in HTML?
 
  DOCTYPE describes the HTML that will be used in your page. Browsers also use the DOCTYPE to determine how to render a page. Not including a DOCTYPE or including an incorrect DOCTYPE can trigger quirks mode. 
 
@@ -26,7 +26,7 @@ References :
  * [https://www.w3schools.com/tags/tag_doctype.asp](https://www.w3schools.com/tags/tag_doctype.asp)
  * [https://stackoverflow.com/questions/414891/what-is-doctype](https://stackoverflow.com/questions/414891/what-is-doctype)
 
- #### 3. What does lang attribute do?
+ ### 3. What does lang attribute do?
 
 The HTML lang attribute is used to identify the language of text content on the web or a portion of a web page. This is meant to assist search engine spiders, page formatting and screen reader technology.
 
@@ -35,7 +35,7 @@ References :
 
 * [https://www.w3.org/International/questions/qa-lang-why](https://www.w3.org/International/questions/qa-lang-why)
 
-#### 4. How do you serve page with content in multiple languages?
+### 4. How do you serve page with content in multiple languages?
 
 This means you need to serve page content available in multiple languages. `lang` atribute defines language of text content in web page. So,The content within the page should be displayed only in one consistent language
 
@@ -55,7 +55,7 @@ References :
 * [https://stackoverflow.com/questions/12150369/define-multiple-languages-in-html](https://stackoverflow.com/questions/12150369/define-multiple-languages-in-html)
 * [https://stackoverflow.com/a/7076990](https://stackoverflow.com/a/7076990)
 
-#### 5. What are all list of inline and block level elements?
+### 5. What are all list of inline and block level elements?
 
 ![alt text](https://i.stack.imgur.com/mGTYI.png "Differences")
 
@@ -99,7 +99,7 @@ References:
 * [https://stackoverflow.com/questions/9189810/css-display-inline-vs-inline-block](https://stackoverflow.com/questions/9189810/css-display-inline-vs-inline-block)
 
 
-#### 6. What is empty tag and why do we need it?
+### 6. What is empty tag and why do we need it?
 
 HTML elements with no content are called empty elements. Empty elements do not have an end tag. The representation of an empty element is either a start-tag immediately followed by an end-tag, or an empty-element tag
 E.g. `<br>` or `<br />`
@@ -108,7 +108,7 @@ E.g. `<br>` or `<br />`
 **Note** : A container tag has two ends (an opening and a closing) whereas an empty tag doesn't. The paragraph tag `<p></p>` is an example of a container tag. 
 
 
-#### 7. What is async and defer in HTML? What does it do and how it defers?
+### 7. What is async and defer in HTML? What does it do and how it defers?
 
 async and defer are attributes, which is added in script tag to define script execution during HTML parsing.
 
@@ -116,11 +116,17 @@ async and defer are attributes, which is added in script tag to define script ex
  The HTML file will be parsed until the script file is hit, at that point parsing will stop and a request will be made to fetch the file (if it’s external). The script will then be executed before parsing is resumed.
 
 * `<script async>` - 
-async downloads the file during HTML parsing and will pause the HTML parser to execute it when it has finished downloading.
+async downloads the file during HTML parsing and will pause the HTML parser to execute it when it has finished downloading. async scripts execute at the first opportunity after they finish downloading and before the window’s load event.
 
 * `<script defer>` - 
-defer downloads the file during HTML parsing and will only execute it after the parser has completed. defer scripts are also guaranteed to execute in the order that they appear in the document.
+defer downloads the file during HTML parsing and will only execute it after the parser has completed. defer scripts are also guaranteed to execute in the order that they appear in the document. Its execution starts after parsing is completely finished, but before the DOMContentLoaded event.
 
+**Note :** While doing speculative parsing, the browser does not execute inline JavaScript blocks. This means that it won’t discover any script-injected resources, and those will likely be last in line in the fetching queue. Also, If there are external style sheets placed before scripts in the document, the construction of DOM and CSSOM objects can interfere with each other. When the parser gets to a script tag, DOM construction cannot proceed until the JavaScript finishes executing, and the JavaScript cannot be executed until the CSS is downloaded, parsed, and the CSSOM is available. 
+
+For important resources you can now use <link rel="preload"> to communicate to the browser that you want to load them as soon as possible.
+```html
+<link rel="preload" href="very_important.js" as="script">
+```
 
 References : 
 
@@ -129,12 +135,98 @@ References :
 * [https://hacks.mozilla.org/2017/09/building-the-dom-faster-speculative-parsing-async-defer-and-preload/](https://hacks.mozilla.org/2017/09/building-the-dom-faster-speculative-parsing-async-defer-and-preload/)
 
 
+### 8. How to refresh a page in HTML without using javascript?
+
+We can use meta refresh tag. The http-equiv attribute provides an HTTP header for the information/value of the content attribute. `refresh` defines a time interval for the document to refresh itself.
 
 
+Following refreshes page every 30 seconds.
+
+```html
+<head>
+<meta http-equiv="refresh" content="30" />
+</head>
+```
+
+**Note:** The value "refresh" should be used carefully, as it takes the control of a page away from the user. Using "refresh" will cause a failure in W3C's Web Content Accessibility Guidelines.
 
 
+### 9. What is URL Encoding?
+
+URL encoding converts characters into a format that can be transmitted over the Internet.
+
+E.g.
+```
+Hello Günter ==> Hello%20G%C3%BCnter
+```
+
+Refrences : 
+
+* [https://www.w3schools.com/tags/ref_urlencode.asp](https://www.w3schools.com/tags/ref_urlencode.asp)
 
 
+### 10. What will happen in below code? Whether page will navigate first or function call triggers first?
+
+ ```html
+  <a href="www.google.com" onclick="myFunction()">
+  ```
+
+  The default behavior of the `<a>` tag's `onclick` and `href` properties is to execute the onclick, then follow the href as long as the onclick doesn't return false, canceling the event (or the event hasn't been prevented ( event.preventDefault() ) 
+
+References :
+
+* [https://developer.mozilla.org/en-US/docs/Web/API/Event/cancelable](https://developer.mozilla.org/en-US/docs/Web/API/Event/cancelable)
+* [https://quirksmode.org/js/events_order.html](https://quirksmode.org/js/events_order.html)
+
+### 11. What is meta tag? Why do we need it?
+
+Metadata is data (information) about data. The `<meta>` tag provides metadata about the HTML document. Metadata will not be displayed on the page, but will be machine parsable.
+
+Meta elements are typically used to specify page description, keywords, author of the document, last modified, and other metadata.The metadata can be used by browsers (how to display content or reload page), search engines (keywords), or other web services.HTML5 introduced a method to let web designers take control over the viewport (the user's visible area of a web page), through the `<meta>` tag
+
+```html
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Free Web tutorials">
+  <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+  <meta name="author" content="John Doe">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+```
+
+References : 
+
+* [https://www.w3schools.com/tags/tag_meta.asp](https://www.w3schools.com/tags/tag_meta.asp)
+
+### 12. Explain audio and video tags. How to embed files with size attributes? 
+
+* `<audio>` -  element specifies a standard way to embed audio in a web page.
+
+    ```html
+    <audio controls>
+        <source src="horse.ogg" type="audio/ogg">
+        <source src="horse.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    ```
+
+    The controls attribute adds audio controls, like play, pause, and volume. `<source>` element allows you to specify alternative audio files which the browser may choose from.
+
+* `<video>` - element specifies a standard way to embed a video in a web page
+
+    ```html
+        <video width="320" height="240" controls>
+            <source src="movie.mp4" type="video/mp4">
+            <source src="movie.ogg" type="video/ogg">
+            Your browser does not support the video tag.
+        </video>
+    ```
+
+References: 
+
+* [https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Video_and_audio_content](https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Video_and_audio_content)
+* [https://www.w3schools.com/html/html5_video.asp](https://www.w3schools.com/html/html5_video.asp)
+* [https://www.w3schools.com/html/html5_audio.asp](https://www.w3schools.com/html/html5_audio.asp)
 
 
-
+### 13. Write basic structure of page HTML Layout elements?
