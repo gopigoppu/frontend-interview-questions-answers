@@ -23,7 +23,7 @@
 13. Write basic structure of page HTML Layout elements?
 14. What is viewport meta tag? Explain how it works?
 15. What are all available HTML Form elements?
-16. What are all available HTML Input elements?
+16. What are all available HTML Input types?
 17. What are all available HTML Input attributes?
 18. What are all new elements in HTML5?
 19. What are semantic elements and Why we need it? What are all new semantic elements in HTML5?

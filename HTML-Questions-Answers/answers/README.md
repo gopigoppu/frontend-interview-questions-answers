@@ -230,3 +230,126 @@ References:
 
 
 ### 13. Write basic structure of page HTML Layout elements?
+
+
+![alt text](https://www.w3schools.com/html/img_sem_elements.gif "HTML Layout ") 
+
+    <header> - Defines a header for a document or a section
+    <nav> - Defines a container for navigation links
+    <section> - Defines a section in a document
+    <article> - Defines an independent self-contained article
+    <aside> - Defines content aside from the content (like a sidebar)
+    <footer> - Defines a footer for a document or a section
+    <details> - Defines additional details
+    <summary> - Defines a heading for the <details> element
+
+References : 
+
+* [https://www.w3schools.com/html/html_layout.asp](https://www.w3schools.com/html/html_layout.asp)
+
+### 14. What is viewport meta tag? Explain how it works?
+
+A `<meta> viewport` element gives the browser instructions on how to control the page's dimensions and scaling.
+
+```html
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+```
+
+* The `width=device-width` part sets the width of the page to follow the `screen-width` of the device (which will vary depending on the device).
+
+* The `initial-scale=1.0` part sets the initial zoom level when the page is first loaded by the browser
+
+References : 
+
+* [https://www.w3schools.com/css/css_rwd_viewport.asp](https://www.w3schools.com/css/css_rwd_viewport.asp)
+* [https://developer.mozilla.org/en-US/docs/Mozilla/Mobile/Viewport_meta_tag](https://developer.mozilla.org/en-US/docs/Mozilla/Mobile/Viewport_meta_tag)
+
+
+### 15. What are all available HTML Form elements?  
+
+    <form>	        Defines an HTML form for user input
+    <input> 	Defines an input control
+    <textarea>	Defines a multiline input control (text area)
+    <label>	        Defines a label for an <input> element
+    <fieldset>	Groups related elements in a form
+    <legend>	Defines a caption for a <fieldset> element
+    <select>	Defines a drop-down list
+    <optgroup>	Defines a group of related options in a drop-down list
+    <option>	Defines an option in a drop-down list
+    <button>	Defines a clickable button
+    <datalist>	Specifies a list of pre-defined options for input controls
+    <output>	Defines the result of a calculation
+    <object>        element represents an external resource, which can be treated as an image, a nested browsing context, or a resource to be handled by a plugin.
+
+References :
+
+* [https://www.w3schools.com/html/html_form_elements.asp](https://www.w3schools.com/html/html_form_elements.asp)
+* [https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement/elements](https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement/elements)
+
+
+### 16. What are all available HTML Input types?
+
+    button:         A push button with no default behavior.
+    checkbox:       A check box allowing single values to be selected/deselected.
+    color:          HTML5 A control for specifying a color. A color picker's UI has no required features other than accepting simple colors as text (more info).
+    date:           HTML5 A control for entering a date (year, month, and day, with no time).
+    datetime-local: HTML5 A control for entering a date and time, with no time zone.
+    email:          HTML5 A field for editing an e-mail address.
+    file:           A control that lets the user select a file. Use the accept attribute to define the types of files that the control can select.
+    hidden:         A control that is not displayed but whose value is submitted to the server.
+    image:          A graphical submit button. You must use the src attribute to define the source of the image and the alt attribute to define alternative text. You can use the height and width attributes to define the size of the image in pixels.
+    month:          HTML5 A control for entering a month and year, with no time zone.
+    number:         HTML5 A control for entering a number.
+    password:       A single-line text field whose value is obscured. Use the maxlength and minlength attributes to specify the maximum length of the value that can be entered.
+    radio:          A radio button, allowing a single value to be selected out of multiple choices.
+    range:          HTML5 A control for entering a number whose exact value is not important.
+    reset:          A button that resets the contents of the form to default values.
+    search:         HTML5 A single-line text field for entering search strings. Line-breaks are automatically removed from the input value.
+    submit:         A button that submits the form.
+    tel:            HTML5 A control for entering a telephone number.
+    text:           A single-line text field. Line-breaks are automatically removed from the input value.
+    time:           HTML5 A control for entering a time value with no time zone.
+    url:            HTML5 A field for entering a URL.
+    week:           HTML5 A control for entering a date consisting of a week-year number and a week number with no time zone.
+
+References : 
+
+* [https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input)
+* [https://www.w3schools.com/html/html_form_input_types.asp](https://www.w3schools.com/html/html_form_input_types.asp)
+
+
+### 17. What are all available HTML Input attributes?
+
+HTML5 added the following attributes for `<input>`:
+
+    type
+    accept
+    capture
+    checked
+    disabled
+    autocomplete
+    autofocus
+    form
+    formaction
+    formenctype
+    formmethod
+    formnovalidate
+    formtarget
+    height and width
+    list
+    min and max
+    minlength and maxlength
+    multiple
+    pattern (regexp)
+    placeholder
+    readonly
+    size
+    src
+    required
+    step
+
+References :
+
+* [https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#Attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#Attributes)
+* [https://www.w3schools.com/html/html_form_attributes.asp](https://www.w3schools.com/html/html_form_attributes.asp)
+
