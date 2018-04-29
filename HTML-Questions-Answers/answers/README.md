@@ -451,3 +451,259 @@ References :
 * [http://www.xpode.com/ShowArticle.aspx?ArticleId=690](http://www.xpode.com/ShowArticle.aspx?ArticleId=690)
 
 ### 22. What is HTML Plug-ins? What does option and embed elements do?
+
+Helper applications (plug-ins) are computer programs that extend the standard functionality of a web browser. Plug-ins can be used for many purposes: display maps, scan for viruses, verify your bank id, etc.
+
+Plug-ins can be added to web pages with the `<object>` tag or the `<embed>` tag. 
+
+The `<object>` element defines an embedded object within an HTML document. It is used to embed plug-ins (like Java applets, PDF readers, Flash Players) in web pages.
+
+```html
+<object width="400" height="50" data="bookmark.swf"></object>
+```
+
+The `<embed>` element also defines an embedded object within an HTML document. web browsers have supported the `<embed>` element for a long time. However, it has not been a part of the HTML specification before HTML5.
+
+```html
+<embed width="400" height="50" src="bookmark.swf">
+```
+
+References :
+
+* [https://www.w3schools.com/html/html_object.asp](https://www.w3schools.com/html/html_object.asp)
+
+
+### 23. What are all available HTML APIs?
+
+Application Programming Interfaces (APIs) are constructs made available in programming languages to allow developers to create complex functionality more easily.
+
+Client-side JavaScript, in particular, has many APIs available to it — these are not part of the JavaScript language itself, rather they are built on top of the core JavaScript language, providing you with extra superpowers to use in your JavaScript code. They generally fall into two categories:
+
+1. Browser APIs are built into your web browser and are able to expose data from the browser and surrounding computer environment and do useful complex things with it. For example, the Geolocation API provides some simple JavaScript constructs for retrieving location data so you can say, plot your location on a Google Map.
+
+2. Third party APIs are not built into the browser by default, and you generally have to grab their code and information from somewhere on the Web. For example, the Twitter API allows you to do things like displaying your latest tweets on your website.
+
+Common browser APIs : 
+* DOM (Document Object Model) API,
+* XMLHttpRequest,
+* Fetch API,
+* Canvas and WebGL,
+* Audio and Video APIs,
+* Notifications API,
+* Vibration API,
+* Web Storage API
+* IndexedDB API 
+
+Common third-party APIs
+* Twitter API,
+* Google Maps API ,
+* Facebook suite of APIs,
+* YouTube API,
+* Twilio API
+
+References :
+
+* [https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Introduction](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Introduction)
+* [https://developer.mozilla.org/en-US/docs/Web/API](https://developer.mozilla.org/en-US/docs/Web/API)
+
+
+### 24. Is summary tag is inline or block level element?
+
+The HTML Disclosure Summary element (`<summary>`) element specifies a summary, caption, or legend for a `<details>` element's disclosure box. Clicking the `<summary>` element toggles the state of the parent `<details>` element open and closed.
+
+default style for `<summary>` elements includes `display: list-item`. This makes it possible to change or remove the icon displayed as the disclosure widget next to the label from the default, which is typically a triangle.
+
+You can also change the style to `display: block` to remove the disclosure triangle.
+
+References :
+
+* [https://developer.mozilla.org/en-US/docs/Web/HTML/Element/summary](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/summary)
+
+### 25. Explain drag & drop with available attributes?
+
+HTML drag and drop uses the DOM event model and drag events inherited from mouse events. A typical drag operation begins when a user selects a draggable element with a mouse, moves the mouse to a droppable element and then releases the mouse. During the operations, several event types are fired and some event types might be fired many times (for example the drag and dragover event types).
+
+All of the drag event types have an associated global event handler. Each drag event type and drag global attribute has a reference document that describes the event.
+
+```html
+<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+  <img src="img_w3slogo.gif" draggable="true" ondragstart="drag(event)" id="drag1" width="88" height="31">
+</div>
+
+<div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+```
+```javascript
+
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    ev.target.appendChild(document.getElementById(data));
+}
+
+```
+
+References : 
+
+* [https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API](https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API)
+* [https://www.w3schools.com/html/html5_draganddrop.asp](https://www.w3schools.com/html/html5_draganddrop.asp)
+
+
+### 26. Explain HTML5 webstorage?
+
+The Web Storage API provides mechanisms by which browsers can store key/value pairs, in a much more intuitive fashion than using cookies
+
+The two mechanisms within Web Storage are as follows:
+
+* `sessionStorage` maintains a separate storage area for each given origin that's available for the duration of the page session (as long as the browser is open, including page reloads and restores)
+    ```javascript
+    window.sessionStorage - stores data for one session (data is lost when the browser tab is closed)
+    ```
+
+* `localStorage` does the same thing, but persists even when the browser is closed and reopened.
+    ```javascript
+    window.localStorage - stores data with no expiration date
+    ```
+References :
+* [https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API)
+* [https://www.w3schools.com/html/html5_webstorage.asp](https://www.w3schools.com/html/html5_webstorage.asp)
+
+
+### 27. Difference between jwt and cookies? How it will be handled using webstorage?
+
+Cookies and local storage serve different purposes. Cookies are primarily for reading server-side, local storage can only be read by the client-side.
+
+The biggest difference between bearer tokens and cookies is that the browser will automatically send cookies, where bearer tokens need to be added explicitly to the HTTP request.
+
+![jwt  vs cookie](https://image.slidesharecdn.com/authentication-cookiesvsjwtandwhyyouredoingitwrong-140703141348-phpapp01/95/authentication-cookies-vs-jwts-and-why-youre-doing-it-wrong-15-638.jpg?cb=1404397117 "jwt vs cookie ") 
+![jwt  vs cookie](https://image.slidesharecdn.com/authentication-cookiesvsjwtandwhyyouredoingitwrong-140703141348-phpapp01/95/authentication-cookies-vs-jwts-and-why-youre-doing-it-wrong-17-638.jpg?cb=1404397117 "jwt vs cookie ") 
+![jwt  vs cookie](https://image.slidesharecdn.com/authentication-cookiesvsjwtandwhyyouredoingitwrong-140703141348-phpapp01/95/authentication-cookies-vs-jwts-and-why-youre-doing-it-wrong-19-638.jpg?cb=1404397117 "jwt vs cookie ") 
+![jwt  vs cookie](https://image.slidesharecdn.com/authentication-cookiesvsjwtandwhyyouredoingitwrong-140703141348-phpapp01/95/authentication-cookies-vs-jwts-and-why-youre-doing-it-wrong-21-638.jpg?cb=1404397117 "jwt vs cookie ") 
+![jwt  vs cookie](https://image.slidesharecdn.com/authentication-cookiesvsjwtandwhyyouredoingitwrong-140703141348-phpapp01/95/authentication-cookies-vs-jwts-and-why-youre-doing-it-wrong-23-638.jpg?cb=1404397117 "jwt vs cookie ") 
+
+
+References : 
+* [https://auth0.com/blog/cookies-vs-tokens-definitive-guide/](https://auth0.com/blog/cookies-vs-tokens-definitive-guide/)
+* [https://www.w3schools.com/js/js_cookies.asp](https://www.w3schools.com/js/js_cookies.asp)
+* [https://www.slideshare.net/derekperkins/authentication-cookies-vs-jwts-and-why-youre-doing-it-wrong](https://www.slideshare.net/derekperkins/authentication-cookies-vs-jwts-and-why-youre-doing-it-wrong)
+
+### 28. What is Web Workers?
+
+Web Workers makes it possible to run a script operation in background thread separate from the main execution thread of a web application. The advantage of this is that laborious processing can be performed in a separate thread, allowing the main (usually the UI) thread to run without being blocked/slowed down.
+
+workers run in another global context that is different from the current window. This context is represented by either a `DedicatedWorkerGlobalScope` object (in the case of dedicated workers - workers that are utilized by a single script), or a `SharedWorkerGlobalScope` (in the case of shared workers - workers that are shared between multiple scripts).
+
+In addition to dedicated workers, there are other types of worker:
+
+* Shared workers are workers that can be utilized by multiple scripts running in different windows, IFrames, etc., as long as they are in the same domain as the worker. They are a little more complex than dedicated workers — scripts must communicate via an active port. 
+* ServiceWorkers essentially act as proxy servers that sit between web applications, the browser, and the network (when available). They are intended, among other things, to enable the creation of effective offline experiences, intercept network requests and take appropriate action based on whether the network is available, and update assets residing on the server. They will also allow access to push notifications and background sync APIs.
+* Chrome Workers are a Firefox-only type of worker that you can use if you are developing add-ons and want to use workers in extensions and have access to js-ctypes in your worker. See ChromeWorker for more details. 
+* Audio Workers provide the ability for direct scripted audio processing to be done inside a web worker context.
+
+References : 
+* [https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API)
+* [https://www.w3schools.com/html/html5_webworkers.asp](https://www.w3schools.com/html/html5_webworkers.asp)
+
+
+### 29. What is Server-Sent Events(SSE)?
+
+A server-sent event is when a web page automatically gets updates from a server.
+
+This was also possible before, but the web page would have to ask if any updates were available. With server-sent events, the updates come automatically.
+
+Examples: Facebook/Twitter updates, stock price updates, news feeds, sport results, etc.
+
+```javascript
+var source = new EventSource("demo_sse.php");
+source.onmessage = function(event) {
+    document.getElementById("result").innerHTML += event.data + "<br>";
+};
+```
+
+References : 
+* [https://www.w3schools.com/html/html5_serversentevents.asp](https://www.w3schools.com/html/html5_serversentevents.asp)
+* [https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events)
+* [https://www.html5rocks.com/en/tutorials/eventsource/basics/](https://www.html5rocks.com/en/tutorials/eventsource/basics/)
+
+### 30. What does charset do?
+
+To display an HTML page correctly, a web browser must know which character set (character encoding) to use.
+
+ UTF-8 (U from Universal Character Set + Transformation Format—8-bit) is a character encoding capable of encoding all possible characters (called code points) in Unicode. The encoding is variable-length and uses 8-bit code units.
+
+ This is specified in the `<meta>` tag:
+```html
+ <meta charset="UTF-8">
+```
+ The user agent looks for the Content-Type response HTTP header sent from the server:
+```
+Content-Type: text/html; charset=utf-8
+```
+And if the Content-Type header doesn't specify a charset the depending on the User Agent different things might happen. Some user agents might try to use heuristics to guess the correct charset by analyzing some of the bytes from the response stream looking for known encodings. And if this fails you might end up with a couple of question marks or weird symbols in your web page at the place where you used characters outside of the ASCII range.
+
+References : 
+* [https://www.w3schools.com/html/html_charset.asp](https://www.w3schools.com/html/html_charset.asp)
+* [https://stackoverflow.com/a/16505406/3421966](https://stackoverflow.com/a/16505406/3421966)
+
+
+### 31. Why is it generally a good idea to position CSS `<link>`s between `<head></head>` and JS `<script>`s just before `</body>`? Do you know any exceptions?
+
+While building DOM, If there are style sheets placed before scripts in the document, the construction of DOM and CSSOM objects can interfere with each other. When the parser gets to a script tag, DOM construction cannot proceed until the JavaScript finishes executing, and the JavaScript cannot be executed until the CSS is downloaded, parsed, and the CSSOM is available.
+
+So, it is good practice to place style sheets in `<head>` section and `<script>` a just before `</body>` tag.
+
+![css js render](https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/files/2017/09/blocking-bold@2x-1.png)
+
+References : 
+* [https://hacks.mozilla.org/2017/09/building-the-dom-faster-speculative-parsing-async-defer-and-preload/](https://hacks.mozilla.org/2017/09/building-the-dom-faster-speculative-parsing-async-defer-and-preload/)
+
+
+### 32. What is progressive rendering?
+
+Progressive rendering is the name given to techniques used to render content for display as quickly as possible.
+
+In Short, page begins to appear and the text can be read even before all of the text and/or images have been completely downloaded.
+
+Progressive rendering is a rendering mode in which the program gradually updates small parts of the entire image refining it from low quality to final result rather than focusing on one small part of the image at a time. The goal of progressive rendering is to always be able to see the process of refining the rendered image as a whole, pretty much like a painter sees his work evolve from a sketch by looking at the whole canvas after he adds more and more details.
+
+References : 
+* [https://jmperezperez.com/medium-image-progressive-loading-placeholder/](https://jmperezperez.com/medium-image-progressive-loading-placeholder/)
+* [https://coronarenderer.freshdesk.com/support/solutions/articles/5000516260-what-is-progressive-rendering-](https://coronarenderer.freshdesk.com/support/solutions/articles/5000516260-what-is-progressive-rendering-)
+
+
+### 33. Why you would use a srcset attribute in an image tag? Explain the process the browser uses when evaluating the content of this attribute.
+
+The srcset attribute specifies the URL of the image to use in different situations. It allows you to declare a set of images to be displayed on different viewport sizes.
+
+```html
+<img alt="my awesome image"
+  src="banner.jpeg"
+  srcset="banner-HD.jpeg 2x, banner-phone.jpeg 640w, banner-phone-HD.jpeg 640w 2x">
+  ```
+The above would serve banner-phone.jpeg to devices with viewport width under 640px, banner-phone-HD.jpeg to small screen high DPI devices, banner-HD.jpeg to high DPI devices with screens greater than 640px, and banner.jpeg to everything else.
+
+  ```html
+  <picture>
+  <source media="(min-width: 650px)" srcset="img_pink_flowers.jpg">
+  <source media="(min-width: 465px)" srcset="img_white_flower.jpg">
+  <img src="img_orange_flowers.jpg" alt="Flowers" style="width:auto;">
+</picture>
+```
+
+References :
+
+* [https://www.html5rocks.com/en/mobile/high-dpi/#toc-srcset](https://www.html5rocks.com/en/mobile/high-dpi/#toc-srcset)
+* [https://www.w3schools.com/tags/att_source_srcset.asp](https://www.w3schools.com/tags/att_source_srcset.asp)
+
+
+### 34. Have you used different HTML templating languages before?
+
+To update your HTML when values update(for dynamic binding), you can use templates, which cleans up your code hugely. There are plenty of templating libraries available like Mustache, Handlebars, Jade etc.
