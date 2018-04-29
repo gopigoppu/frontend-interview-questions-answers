@@ -4,7 +4,7 @@
 
 ## HTML Questions
 
-1. Is HTML case sensitive?
+1. [Is HTML case sensitive?](/answers#1-is-html-case-sensitive)
 2. What is doctype in HTML?
 3. What does lang attribute do?
 4. How do you serve page with content in multiple languages?
