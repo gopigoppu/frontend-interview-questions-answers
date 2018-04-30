@@ -1,6 +1,6 @@
 # HTML Question Answers.
 
-
+ **Note : Pull requests for suggestions and corrections are welcome!**
 ### 1. Is HTML case sensitive?
 
 HTML is case insenstivie. But it is good practice to keep HTML markup lowercase. 

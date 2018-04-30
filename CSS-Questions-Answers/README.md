@@ -48,10 +48,6 @@
 41. Have you ever worked with retina graphics? If so, when and what techniques did you use?
 42. Is there any reason you'd want to use translate() instead of absolute positioning, or vice-versa? And why?
 
-## Answers
-
-1. What is the difference between display `inline` and `block` and `inline-block` in CSS? 
-
 
 
 
