@@ -2,6 +2,8 @@
 
  **Note : Pull requests for suggestions and corrections are welcome!**
 
+![HTML periodic table](https://github.com/gopigoppu/frontend-interview-questions-answers/blob/master/HTML-Questions-Answers/periodic-table-html.png)
+
 ## HTML Questions
 
 1. [Is HTML case sensitive?](/HTML-Questions-Answers/answers#1-is-html-case-sensitive)
@@ -29,7 +31,7 @@
 19. [What are semantic elements and Why we need it? What are all new semantic elements in HTML5?](/HTML-Questions-Answers/answers#19-what-are-semantic-elements-and-why-we-need-it-what-are-all-new-semantic-elements-in-html5)
 20. [What is contenteditable attribute? What does it do?](/HTML-Questions-Answers/answers#20-what-is-contenteditable-attribute-what-does-it-do)
 21. [What is canvas and svg ? How it differs?](/HTML-Questions-Answers/answers#21-what-is-canvas-and-svg--how-it-differs)
-22. What is HTML Plug-ins? What does option and embed elements do?](/HTML-Questions-Answers/answers#22-what-is-html-plug-ins-what-does-option-and-embed-elements-do)
+22. [What is HTML Plug-ins? What does option and embed elements do?](/HTML-Questions-Answers/answers#22-what-is-html-plug-ins-what-does-option-and-embed-elements-do)
 23. [What are all available HTML APIs?](/HTML-Questions-Answers/answers#23-what-are-all-available-html-apis)
 24. [Is summary tag is inline or block level element?](/HTML-Questions-Answers/answers#24-is-summary-tag-is-inline-or-block-level-element)
 25. [Explain drag & drop with available attributes?](/HTML-Questions-Answers/answers#25-explain-drag--drop-with-available-attributes)
