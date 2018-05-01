@@ -47,6 +47,8 @@
 40. What existing CSS frameworks have you used locally, or in production? How would you change/improve them?
 41. Have you ever worked with retina graphics? If so, when and what techniques did you use?
 42. Is there any reason you'd want to use translate() instead of absolute positioning, or vice-versa? And why?
+43. How to align 3 divs (left/center/right) inside another div?
+
 
 
 

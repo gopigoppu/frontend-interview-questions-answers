@@ -509,5 +509,349 @@ References :
 * [https://www.w3schools.com/css/css_boxmodel.asp](https://www.w3schools.com/css/css_boxmodel.asp)
 
 
+
+
+
+
+
+
+### 43. How to align 3 divs (left/center/right) inside another div?
+```css
+#container{width:100%;}
+#div1{float:left;width:100px;height:100px; background-color:blue;}
+#div2{float:right;width:100px;height:100px; background-color:green;}
+#div3{margin:0 auto;width:100px;height:100px; background-color:purple;}
+```
+```html
+<div id="container">
+  <div id="div1">div1</div>
+  <div id="div2">div2</div>
+  <div id="div3">div3</div>
+</div>
+```
+
+
+
 ### 19. You have 3 div's. You have to align first div in right side and other 2 div's in left side. Write CSS to achieve this?
+
+```css
+#div1{float:right;width:100px;height:100px; background-color:blue;}
+#div2{float:left;width:100px;height:100px; background-color:green;}
+#div3{float:left;width:100px;height:100px; background-color:purple;}
+```
+```html
+<div id="container">
+  <div id="div1">div1</div>
+  <div id="div2">div2</div>
+  <div id="div3">div3</div>
+</div>
+```
+
+Solution 2 (using flexbox):
+```css
+.example {
+    display: flex;
+    flex-direction: row;
+}
+
+.example > .a {order: 3; } /* Will be displayed third  */
+.example > .b {order: 1; } /* Will be displayed second */
+.example > .c {order: 2; } /* Will be displayed first  */
+```
+```html
+<div class="example">
+    <div class="a">First</div>
+    <div class="b">Second</div>
+    <div class="c">Third</div>
+</div>
+```
+
+If you want to achieve with bootstrap check for `.pull-left` and `.pull-right` for v3 or `.float-left` and `.float-right` for v4.
+
+
+### 20. Place a div to corner top-right of the page. Write CSS to achieve this?
+
+```css
+.topheader {
+     position: relative;
+     height: 20px;
+   	
+}
+.bio{
+
+    position:absolute;
+    top: 0;
+    right: 0;
+    border: 1px solid;
+}
+```
+```html
+<div class="topheader">
+    <div class="bio">myname</div>
+</div>
+```
+
+References : 
+* [https://stackoverflow.com/questions/11492055/how-to-adjust-relative-div-height-with-respect-to-inner-absolute-height](https://stackoverflow.com/questions/11492055/how-to-adjust-relative-div-height-with-respect-to-inner-absolute-height)
+
+
+
+### 21. What are all position properties available in css?
+
+| Value |	Description |
+| ----- | ------------- |
+| static | HTML elements are positioned static by default.Static positioned elements are not affected by the top, bottom, left, and right properties. |
+| relative | An element with position: relative; is positioned relative to its normal position. Setting the top, right, bottom, and left properties of a relatively-positioned element will cause it to be adjusted away from its normal position. Other content will not be adjusted to fit into any gap left by the element. |
+| fixed | An element with position: fixed; is positioned relative to the viewport, which means it always stays in the same place even if the page is scrolled. The top, right, bottom, and left properties are used to position the element. A fixed element does not leave a gap in the page where it would normally have been located. |
+| absolute | An element with position: absolute; is positioned relative to the nearest positioned ancestor (instead of positioned relative to the viewport, like fixed). However; if an absolute positioned element has no positioned ancestors, it uses the document body, and moves along with page scrolling. |
+| sticky | An element with position: sticky; is positioned based on the user's scroll position. A sticky element toggles between relative and fixed, depending on the scroll position. It is positioned relative until a given offset position is met in the viewport - then it "sticks" in place (like position:fixed). |
+
+
+References : 
+* [https://www.w3schools.com/css/css_positioning.asp](https://www.w3schools.com/css/css_positioning.asp)
+
+
+
+### 22. Explain css position `absolute` and `relative`?
+
+* `position: absolute` :  An element with position: absolute; is positioned relative to the nearest positioned ancestor (instead of positioned relative to the viewport, like fixed). However; if an absolute positioned element has no positioned ancestors, it uses the document body, and moves along with page scrolling.
+Note: A "positioned" element is one whose position is anything except static.
+
+* `position: relative` :  An element with position: relative; is positioned relative to its normal position.
+Setting the top, right, bottom, and left properties of a relatively-positioned element will cause it to be adjusted away from its normal position. Other content will not be adjusted to fit into any gap left by the element.
+
+```css
+div.relative {
+    position: relative;
+    width: 400px;
+    height: 200px;
+    border: 3px solid #73AD21;
+} 
+
+div.absolute {
+    position: absolute;
+    top: 80px;
+    right: 0;
+    width: 200px;
+    height: 100px;
+    border: 3px solid #73AD21;
+}
+```
+```html
+<div class="relative">This div element has position: relative;
+  <div class="absolute">This div element has position: absolute;</div>
+</div>
+```
+
+References : 
+* [https://www.w3schools.com/css/css_positioning.asp](https://www.w3schools.com/css/css_positioning.asp)
+
+
+### 23. What is media query in CSS? Explain different type of design layout for devices?
+
+Media queries are useful when you want to modify your site or app depending on a device's general type (such as print vs. screen), specific characteristics (such as the width of the browser viewport), or environment (such as ambient light conditions).
+
+Media queries are used for the following:
+
+* To conditionally apply styles with the CSS @media and @import at-rules.
+* To target specific media for the <link>, <source>, and other HTML elements.
+* To test and monitor media states using the Window.matchMedia() and MediaQueryList.addListener() JavaScript methods.
+
+A media query is composed of an optional media type and any number of media feature expressions. Multiple queries can be combined in various ways by using logical operators. Media queries are case-insensitive.
+
+@media rule to include a block of CSS properties only if a certain condition is true.
+
+Media types : 
+* all - Suitable for all devices.
+* print - Intended for paged material and documents viewed on a screen in print preview mode. 
+* screen - Intended primarily for screens.
+* speech - Intended for speech synthesizers.
+
+Logical operators : 
+* and - used for combining multiple media features together into a single media query, requiring each chained feature to return true in order for the query to be true. It is also used for joining media features with media types.
+* not - used to negate a media query, returning true if the query would otherwise return false. If present in a comma-separated list of queries, it will only negate the specific query to which it is applied. If you use the not operator, you must also specify a media type.
+* only - used to apply a style only if an entire query matches, and is useful for preventing older browsers from applying selected styles. If you use the only operator, you must also specify a media type.
+* , (comma) - used to combine multiple media queries into a single rule.  Each query in a comma-separated list is treated separately from the others. Thus, if any of the queries in a list is true, the entire media statement returns true. In other words, lists behave like a logical or operator.
+
+```css
+@media only screen and (max-width: 600px) { ... } 
+@media (min-height: 680px), screen and (orientation: portrait) { ... }
+@media not screen and (color), print and (color) { ... }
+```
+
+References : 
+* [https://www.w3schools.com/css/css_rwd_mediaqueries.asp](https://www.w3schools.com/css/css_rwd_mediaqueries.asp)
+* [https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries)
+
+
+### 24. What are all different mediatypes available for media query?
+
+* all - Suitable for all devices.
+* print - Intended for paged material and documents viewed on a screen in print preview mode. 
+* screen - Intended primarily for screens.
+* speech - Intended for speech synthesizers.
+
+
+### 25. What is viewport in RWD(Responsive Web Design)?
+
+The viewport is the user's visible area of a web page. The viewport varies with the device, and will be smaller on a mobile phone than on a computer screen.
+
+Narrow screen devices (e.g. mobiles) render pages in a virtual window or viewport, which is usually wider than the screen, and then shrink the rendered result down so it can all be seen at once. Users can then pan and zoom to see different areas of the page. So, Pages to be optimized. 
+
+Pages optimized for a variety of devices must include a meta viewport tag in the head of the document. A meta viewport tag gives the browser instructions on how to control the page's dimensions and scaling.
+
+* Use the meta viewport tag to control the width and scaling of the browser's viewport.
+* Include `width=device-width` to match the screen's width in device-independent pixels.
+* Include `initial-scale=1` to establish a 1:1 relationship between CSS pixels and device-independent pixels.
+* Ensure your page is accessible by not disabling user scaling.
+
+```html
+<meta name="viewport" content="width=device-width, initial-scale=1">
+```
+
+References : 
+* [https://www.w3schools.com/css/css_rwd_viewport.asp](https://www.w3schools.com/css/css_rwd_viewport.asp)
+* [https://developer.mozilla.org/en-US/docs/Mozilla/Mobile/Viewport_meta_tag](https://developer.mozilla.org/en-US/docs/Mozilla/Mobile/Viewport_meta_tag)
+* [https://developers.google.com/web/fundamentals/design-and-ux/responsive/](https://developers.google.com/web/fundamentals/design-and-ux/responsive/)
+
+
+### 26. What is the difference between border-box and content-box?
+
+* content-box	- Default box-sizing property. The width and height properties (and min/max properties) includes only the content. Border and padding are not included
+* border-box	- The width and height properties (and min/max properties) includes content, padding and border.
+
+![border-box vs content-box](https://i.stack.imgur.com/C7oir.png)
+
+
+### 27. What is CSS selector specificity and how does it work?
+
+Specificity is the means by which browsers decide which CSS property values are the most relevant to an element and, therefore, will be applied. Specificity is based on the matching rules which are composed of different sorts of CSS selectors.
+
+**Specificity Hierarchy :**
+
+Every selector has its place in the specificity hierarchy. There are four categories which define the specificity level of a selector:
+
+* **Inline styles** - An inline style is attached directly to the element to be styled. Example: `<h1 style="color: #ffffff;">`.
+
+* **IDs** - An ID is a unique identifier for the page elements, such as #navbar.
+
+* **Classes, attributes and pseudo-classes** - This category includes .classes, [attributes] and pseudo-classes such as :hover, :focus etc.
+
+* **Elements and pseudo-elements** - This category includes element names and pseudo-elements, such as h1, div, :before and :after.
+
+```html
+<div id="test">
+  <span>Text</span>
+</div>
+```
+```css
+div#test span { color: green; }
+div span { color: blue; }
+span { color: red; }
+```
+No matter the order, text will be green because that rule is most specific. (Also, the rule for blue overwrites the rule for red, notwithstanding the order of the rules)
+
+References : 
+* [https://www.w3schools.com/css/css_specificity.asp](https://www.w3schools.com/css/css_specificity.asp)
+* [https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity)
+* [https://medium.com/@dte/understanding-css-selector-specificity-a02238a02a59](https://medium.com/@dte/understanding-css-selector-specificity-a02238a02a59)
+
+
+### 28. What's the difference between "resetting" and "normalizing" CSS? Which would you choose, and why?
+
+CSS resets aim to remove all built-in browser styling. Standard elements like H1-6, p, strong, em, et cetera end up looking exactly alike, having no decoration at all. You're then supposed to add all decoration yourself.
+
+Normalize CSS aims to make built-in browser styling consistent across browsers. Elements like H1-6 will appear bold, larger et cetera in a consistent way across browsers. You're then supposed to add only the difference in decoration your design needs.
+
+References : 
+* [https://stackoverflow.com/questions/6887336/what-is-the-difference-between-normalize-css-and-reset-css](https://stackoverflow.com/questions/6887336/what-is-the-difference-between-normalize-css-and-reset-css)
+* [http://necolas.github.io/normalize.css/](http://necolas.github.io/normalize.css/)
+* [https://meyerweb.com/eric/tools/css/reset/](https://meyerweb.com/eric/tools/css/reset/)
+
+
+### 29. Describe floats and how they work?
+
+The float property is used for positioning and layout on web pages. Floats can be used to create entire web layouts.
+
+*  A floated element is "invisible" to its parent
+* A left/right floated element will try to be as close to the top and left/right of its parent element as possible
+* Previously defined elements will push a floated element down
+* A previously declared floated element will be given a more preferable position
+* A position closer to the top of the parent element is preferred to a position closer to the left/right of the parent element
+* A floated element should not extend outside its parent element
+
+The float property can have one of the following values:
+
+* left - The element floats to the left of its container
+* right- The element floats to the right of its container
+* none - The element does not float (will be displayed just where it occurs in the text). This is default
+* inherit - The element inherits the float value of its parent
+
+In its simplest use, the float property can be used to wrap text around images.
+
+
+The clear property specifies what elements can float beside the cleared element and on which side.
+
+The clear property can have one of the following values:
+
+* none - Allows floating elements on both sides. This is default
+* left - No floating elements allowed on the left side
+* right- No floating elements allowed on the right side
+* both - No floating elements allowed on either the left or the right side
+* inherit - The element inherits the clear value of its parent
+
+The most common way to use the clear property is after you have used a float property on an element.
+
+If an element is taller than the element containing it, and it is floated, it will overflow outside of its container. 
+Then we can add `overflow: auto;` to the containing element to fix this problem.
+
+References : 
+* [https://css-tricks.com/all-about-floats/](https://css-tricks.com/all-about-floats/)
+* [https://www.w3schools.com/css/css_float.asp](https://www.w3schools.com/css/css_float.asp)
+* [https://bitsofco.de/how-floating-works/](https://bitsofco.de/how-floating-works/)
+
+
+### 30. Describe z-index and how stacking context is formed?
+
+CSS style rules allow you to position boxes on layers in addition to the normal rendering layer (layer 0). The Z position of each layer is expressed as an integer representing the stacking order for rendering. Greater numbers mean closer to the observer. Z position can be controlled with the CSS z-index property.
+
+The z-index property in CSS controls the vertical stacking order of elements that overlap. As in, which one appears as if it is physically closer to you. z-index only effects elements that have a position value other than static (the default).
+
+```css
+div {
+  z-index: 1; /* integer */
+}
+```
+
+**stacking context :**
+
+The stacking context is a three-dimensional conceptualization of HTML elements along an imaginary z-axis relative to the user, who is assumed to be facing the viewport or the webpage. HTML elements occupy this space in priority order based on element attributes.
+
+![z index](https://i.stack.imgur.com/wmy0R.png) ![z index](https://mdn.mozillademos.org/files/790/understanding_zindex_04.png)
+
+A stacking context is formed, anywhere in the document, by any element in the following scenarios:
+
+* Root element of document (HTML).
+* Element with a position value "absolute" or "relative" and z-index value other than "auto".
+* Element with a position value "fixed" or "sticky" (sticky for all mobile browsers, but not older desktop).
+* Element that is a child of a flex (flexbox) container, with z-index value other than "auto".
+* Element with a opacity value less than 1 (See the specification for opacity).
+* Element with a mix-blend-mode value other than "normal".
+* Element with any of the following properties with value other than "none":
+    * transform
+    * filter
+    * perspective
+    * clip-path
+    * mask / mask-image / mask-border
+* Element with a isolation value "isolate".
+* Element with a -webkit-overflow-scrolling value "touch".
+* Element with a will-change value specifying any property that would create a stacking context on non-initial value (see this post).
+
+Within a stacking context, child elements are stacked according to the same rules previously explained. Importantly, the z-index values of its child stacking contexts only have meaning in this parent. Stacking contexts are treated atomically as a single unit in the parent stacking context.
+
+References :
+* [https://philipwalton.com/articles/what-no-one-told-you-about-z-index/](https://philipwalton.com/articles/what-no-one-told-you-about-z-index/)
+* [https://stackoverflow.com/questions/32513540/understanding-z-index-stacking-order](https://stackoverflow.com/questions/32513540/understanding-z-index-stacking-order)
+* [https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context)
+
 

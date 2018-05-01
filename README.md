@@ -2,7 +2,7 @@
 
 ####  ** Note ** : I'm updating one-by-one sections everyday. Please come back for other stuffs later.
 
-I would like to share some questions and answers for those who are all preparing for frontend interview/hire developers. All these questions are that i have faced on interviews and some got it from internet. I will share all the reference links and try to answer all the questions mentioned here. If you find any mistakes or got better solutions, you can also contribute to make it better. This is purely to help people for preparing frontend job or to hire pro developers can refer this section. 
+I would like to share some questions and answers for those who are all preparing for frontend interview/hire developers. All these questions are that i have faced on interviews and some got it from internet. I will share all the reference links and try to answer all the questions mentioned here. If you find any mistakes or got better solutions, you can also contribute to make it better. This is purely to help people for preparing frontend job or to hire pro developers can refer this section. I have added reference links to give credits for the answers that i have got on the internet. Almost I prefered MDN, W3schools, Stackoverflow, CSSTricks and other sites.
 
 ## Table of contents
 
