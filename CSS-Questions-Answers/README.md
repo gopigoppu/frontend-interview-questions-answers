@@ -18,7 +18,7 @@
 11. What is universal selector and what does it do in CSS?
 12. What is the difference between `visibility:hidden` and `display:none` in CSS? 
 13. While element having `display:none` style properties, will it be available in DOM tree or not?
-14. What is `in the flow` and `out of flow` in CSS?
+14. What is the meaning of `"Normal Flow"` and `“Out of Flow”` in CSS?
 15. What is static binding and dynamic binding in CSS?
 16. Difference between css `pseudo-elements` and `pseudo-classes`?
 17. What `pseudo-class` indicates the link is visited and link is not-visited?
