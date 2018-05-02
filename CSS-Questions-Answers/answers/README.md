@@ -855,3 +855,176 @@ References :
 * [https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context)
 
 
+### 31. Describe BFC (Block Formatting Context) and how it works?
+
+A block formatting context is a part of a visual CSS rendering of a Web page. It is the region in which the layout of block boxes occurs and in which floats interact with other elements.
+
+According to W3C:
+
+    Floats, absolutely positioned elements, inline-blocks, table-cells, table-captions, and elements with ‘overflow’ other than ‘visible’ (except when that value has been propagated to the viewport) establish new block formatting contexts.
+
+A BFC is an HTML box that satisfies at least one of the following conditions:
+
+* The value of float is not none.
+* The value of position is neither static nor relative.
+* The value of display is table-cell, table-caption, inline-block, flex, or inline-flex.
+* The value of overflow is not visible.
+
+References : 
+* [https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Block_formatting_context](https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Block_formatting_context)
+* [https://www.sitepoint.com/understanding-block-formatting-contexts-in-css/](https://www.sitepoint.com/understanding-block-formatting-contexts-in-css/)
+* [https://www.smashingmagazine.com/2017/12/understanding-css-layout-block-formatting-context/](https://www.smashingmagazine.com/2017/12/understanding-css-layout-block-formatting-context/)
+
+
+
+### 32. What are the various clearing techniques and which is appropriate for what context?
+
+The clear property specifies what elements can float beside the cleared element and on which side.
+
+overflow - Specifies what happens if content overflows an element's box.
+
+The clear property can have one of the following values:
+
+* none - Allows floating elements on both sides. This is default
+* left - No floating elements allowed on the left side
+* right- No floating elements allowed on the right side
+* both - No floating elements allowed on either the left or the right side
+* inherit - The element inherits the clear value of its parent
+
+Techniques for Clearing Floats
+
+* **The Empty Div Method** is, quite literally, an empty div. `<div style="clear: both;"></div>`. Sometimes you'll see a `<br>` element or some other random element used, but div is the most common because it has no browser default styling, doesn't have any special function, and is unlikely to be generically styled with CSS. This method is scorned by semantic purists since its presence has no contextual meaning at all to the page and is there purely for presentation. Of course in the strictest sense they are right, but it gets the job done right and doesn't hurt anybody.
+* **The Overflow Method** relies on setting the overflow CSS property on a parent element. If this property is set to `auto` or `hidden` on the parent element, the parent will expand to contain the floats, effectively clearing it for succeeding elements. This method can be beautifully semantic as it may not require an additional elements. However if you find yourself adding a new div just to apply this, it is equally as non-semantic as the empty div method and less adaptable. Also bear in mind that the overflow property isn't specifically for clearing floats. Be careful not to hide content or trigger unwanted scrollbars.
+* **The Easy Clearing Method** uses a clever CSS pseudo selector (:after) to clear floats. Rather than setting the overflow on the parent, you apply an additional class like "clearfix" to it. Then apply this CSS:
+
+```css
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+```
+
+```css
+.clearfix {
+    overflow: auto;
+}
+```
+References : 
+* [https://www.w3schools.com/css/css_float.asp](https://www.w3schools.com/css/css_float.asp)
+* [http://www.dave-woods.co.uk/float-and-clear-a-comparison-of-css-clearing-techniques/](http://www.dave-woods.co.uk/float-and-clear-a-comparison-of-css-clearing-techniques/)
+* [https://css-tricks.com/all-about-floats/](https://css-tricks.com/all-about-floats/)
+
+### 33. Explain CSS sprites, and how you would implement them on a page or site.
+
+An image sprite is a collection of images put into a single image. Image sprites are used in numerous web apps where multiple images are used. Rather than include each image as a separate image file, it is much more memory- and bandwidth-friendly to send them as a single image, so the number of HTTP requests is reduced.
+
+```css
+.toolbtn {
+  background: url(myfile.png);
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+}
+```
+A background position can be added either as two x, y values after the url() in the background, or as background-position.
+```css
+#btn1 {
+  background-position: -20px 0px;
+}
+
+#btn2 {
+  background-position: -40px 0px;
+}
+```
+
+Note : Use a sprite generator that packs multiple images into one and generate the appropriate CSS for it.
+
+References :
+* [https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Images/Implementing_image_sprites_in_CSS](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Images/Implementing_image_sprites_in_CSS)
+* [https://www.w3schools.com/css/css_image_sprites.asp](https://www.w3schools.com/css/css_image_sprites.asp)
+
+
+
+### 34. How do you serve your pages for feature-constrained browsers? What techniques/processes do you use?
+
+* Graceful degradation — The practice of building an application for modern browsers while ensuring it remains functional in older browsers.
+* Progressive enhancement — The practice of building an application for a base level of user experience, but adding functional enhancements when a browser supports it.
+* Use caniuse.com to check for feature support.
+* Autoprefixer for automatic vendor prefix insertion.
+* Feature detection using Modernizr.
+
+References :
+* [https://codeburst.io/clearing-your-front-end-job-interview-css-95bdd82871f2](https://codeburst.io/clearing-your-front-end-job-interview-css-95bdd82871f2)
+
+### 35. What are the different ways to visually hide content (and make it available only for screen readers)?
+
+These techniques are related to accessibility (a11y).
+
+* visibility: hidden. However the element is still in the flow of the page, and still takes up space.
+* width: 0; height: 0. Make the element not take up any space on the screen at all, resulting in not showing it.
+* position; absolute; left: -99999px. Position it outside of the screen.
+* text-indent: -9999px. This only works on text within the block elements.
+
+References :
+* [https://codeburst.io/clearing-your-front-end-job-interview-css-95bdd82871f2](https://codeburst.io/clearing-your-front-end-job-interview-css-95bdd82871f2)
+
+
+36. What are the advantages/disadvantages of using CSS preprocessors?
+
+Advantages:
+
+* CSS is made more maintainable.
+* Easy to write nested selectors.
+* Variables for consistent theming. Can share theme files across different projects.
+* Mixins to generate repeated CSS.
+* Splitting your code into multiple files. CSS files can be split up too but doing so will require a HTTP request to download each CSS file.
+
+Disadvantages :
+* The developer must have enough time to learn new features present in this preprocessor before using it.
+* Using preprocessors may cause of losing benefits of browser's built-in element inspector.
+* Requires tools for preprocessing. Re-compilation time can be slow.
+
+References :
+* [https://lovenoodles.cn/qsCenter/front_end/css/2018/03/01/115](https://lovenoodles.cn/qsCenter/front_end/css/2018/03/01/115)
+* [http://techaffinity.com/blog/advantages-of-css-preprocessors/](http://techaffinity.com/blog/advantages-of-css-preprocessors/)
+
+
+### 37. How would you implement a web design comp that uses non-standard fonts?
+
+* using `@font-face`
+```css
+@font-face {
+    font-family: myFirstFont;
+    src: url(sansation_light.woff);
+}
+```
+* using font service link
+```html
+<link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+```
+
+References : 
+* [https://www.w3schools.com/cssref/css3_pr_font-face_rule.asp](https://www.w3schools.com/cssref/css3_pr_font-face_rule.asp)
+
+
+### 38. Explain how a browser determines what elements match a CSS selector.
+
+One of the important things to understand about how browsers read your CSS selectors, is that they read them from right to left. That means that in the selector `ul > li a[title=”home”]` the first thing thing interpreted is `a[title=”home”]`. This first part is also referred to as the “key selector” in that ultimately, it is the element being selected.
+```css
+#main-nav > li {   }  /* Slower than it might seem */
+```
+Even though that feels weirdly counter-intuitive… Since ID’s are so efficient we would think the browser could just find that ID quickly and then find the li children quickly. But in reality, the relatively slow li tag selector is run first.
+
+If the browser can determine the element you are looking for using just one selector and you’ve used more, you have inefficient code on your hands.
+
+So you have to be very careful on how you are choosing your selector. Give unique IDs to fetch the single element Or give class name properly to identify group of elements based on your requirement.
+
+On the other hand, if you start by matching the leftmost part of the selector… what do you match it against? You have to start walking the DOM, looking for nodes that might match it. Just discovering that there’s nothing matching that leftmost part might take a while.So browsers match from the right; it gives an obvious starting point and lets you get rid of most of the candidate selectors very quickly.
+
+References : 
+* [https://programmerinnervoice.wordpress.com/2013/12/18/how-does-browser-read-css-selector/](https://programmerinnervoice.wordpress.com/2013/12/18/how-does-browser-read-css-selector/)
+* [https://stackoverflow.com/a/5813672](https://stackoverflow.com/a/5813672)
+
+
+### 39. Can you explain the difference between coding a web site to be responsive versus using a mobile-first strategy?
