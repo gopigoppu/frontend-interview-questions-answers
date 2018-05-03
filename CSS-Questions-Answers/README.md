@@ -33,7 +33,7 @@
 26. [What is the difference between border-box and content-box?](/CSS-Questions-Answers/answers/README.md#26-what-is-the-difference-between-border-box-and-content-box)
 27. [What is CSS selector specificity and how does it work?](/CSS-Questions-Answers/answers/README.md#27-what-is-css-selector-specificity-and-how-does-it-work)
 28. [What's the difference between "resetting" and "normalizing" CSS? Which would you choose, and why?](/CSS-Questions-Answers/answers/README.md#28-whats-the-difference-between-resetting-and-normalizing-css-which-would-you-choose-and-why)
-29. [Describe floats and how they work.](/CSS-Questions-Answers/answers/README.md#29-describe-floats-and-how-they-work
+29. [Describe floats and how they work.](/CSS-Questions-Answers/answers/README.md#29-describe-floats-and-how-they-work)
 30. [Describe z-index and how stacking context is formed.](/CSS-Questions-Answers/answers/README.md#30-describe-z-index-and-how-stacking-context-is-formed)
 31. [Describe BFC (Block Formatting Context) and how it works.](/CSS-Questions-Answers/answers/README.md#31-describe-bfc-block-formatting-context-and-how-it-works)
 32. [What are the various clearing techniques and which is appropriate for what context?](/CSS-Questions-Answers/answers/README.md#32-what-are-the-various-clearing-techniques-and-which-is-appropriate-for-what-context)
