@@ -5,7 +5,7 @@
 
 ## CSS Questions
 
-1. What is the difference between display `inline` and `block` and `inline-block` in CSS?
+1. [What is the difference between display `inline` and `block` and `inline-block` in CSS?](/CSS-Questions-Answers/answers/README.md#1-what-is-the-difference-between-display-inline-and-block-and-inline-block-in-css)
 2. What is flexbox and explain about it?
 3. What is "grid and explain about it?
 4. What are all the different types of display methods available?
