@@ -509,29 +509,6 @@ References :
 * [https://www.w3schools.com/css/css_boxmodel.asp](https://www.w3schools.com/css/css_boxmodel.asp)
 
 
-
-
-
-
-
-
-### 43. How to align 3 divs (left/center/right) inside another div?
-```css
-#container{width:100%;}
-#div1{float:left;width:100px;height:100px; background-color:blue;}
-#div2{float:right;width:100px;height:100px; background-color:green;}
-#div3{margin:0 auto;width:100px;height:100px; background-color:purple;}
-```
-```html
-<div id="container">
-  <div id="div1">div1</div>
-  <div id="div2">div2</div>
-  <div id="div3">div3</div>
-</div>
-```
-
-
-
 ### 19. You have 3 div's. You have to align first div in right side and other 2 div's in left side. Write CSS to achieve this?
 
 ```css
@@ -1028,3 +1005,115 @@ References :
 
 
 ### 39. Can you explain the difference between coding a web site to be responsive versus using a mobile-first strategy?
+
+ ‘mobile-first’ is an approach to responsive design, where you make a design for mobile screens, or smaller screens first and then add added features and content for larger screens.
+
+ ‘Responsive’ website design takes into consideration the users’ environment and screen size while making the design. It includes mixing layouts and employing flexible grids and images. Responsive design also uses CSS media queries.
+
+ Knowing exactly who makes up a company’s audience is critical. Once it is understood who a company’s customers are and what devices they use to access the site, it will be possibly to develop a design that will satisfy customers and enhance their user experience.
+
+ References : 
+ * [https://codeburst.io/mobile-first-adaptive-or-responsive-design-which-to-choose-for-the-website-so-customers-want-to-aafc86443222](https://codeburst.io/mobile-first-adaptive-or-responsive-design-which-to-choose-for-the-website-so-customers-want-to-aafc86443222)
+ * [https://codeburst.io/mobile-first-adaptive-or-responsive-design-which-to-choose-for-the-website-so-customers-want-to-aafc86443222](https://codeburst.io/mobile-first-adaptive-or-responsive-design-which-to-choose-for-the-website-so-customers-want-to-aafc86443222)
+ * [https://www.quora.com/What-is-the-difference-between-mobile-first-website-design-and-responsive-website-design-Are-they-mutually-exclusive](https://www.quora.com/What-is-the-difference-between-mobile-first-website-design-and-responsive-website-design-Are-they-mutually-exclusive)
+
+
+ ### 40. What existing CSS frameworks have you used locally, or in production? How would you change/improve them?
+
+`Bootstrap, Foundation, Bulma and Semantic UI`
+
+
+### 41. Have you ever worked with retina graphics? If so, when and what techniques did you use?
+
+On retina devices the websites are not broken. They just look vague and pixels start appearing as low resolution images. So the only way to correct is to resize the images by following one of the techniques below:
+
+* Using alternate high resolution pixels :
+
+Suppose we have an image of 200px by 400px (CSS pixels) and we want to display it properly in a retina display, we can upload an alternate image of size 400px by 800px in our server and render them whenever the webpage is opened in a retina device.
+
+```css
+/* for low resolution display */
+
+.image {
+
+    background-image: url(/path/to/my/lowreslogo.png);
+
+    background-size: 200px 300px;
+
+    height: 300px;
+
+    width: 200px;
+
+}
+
+/* for high resolution display */
+
+@media only screen and (min--moz-device-pixel-ratio: 2),
+
+only screen and (-o-min-device-pixel-ratio: 2/1),
+
+only screen and (-webkit-min-device-pixel-ratio: 2),
+
+only screen and (min-device-pixel-ratio: 2) {
+
+.image {
+
+    background: url(/path/to/my/highreslogo.png) no-repeat;
+
+    background-size: 200px 400px;
+
+/* rest of your styles... */
+
+}
+
+}
+```
+
+* Using @face-fonts instead of images icon :
+
+Image fonts will automatically resize themselves on the high resolution devices just like normal fonts do. Using @face-fonts is an alternate solution to Bitmap icons.
+
+* Using SVG images instead of Bitmap images :
+
+Bitmap images are images that multiply their pixels in retina displays. But they come with a limitation of getting multiplied infinite number of times. This is where SVG images come into role. They also solve our problem of uploading alternate images of double resolution plus they solve the bandwidth problem too.
+
+* Using JavaScript to replace all the images with double sized image :
+
+We can use JavaScript to replace all images in a webpage but it will be a difficult task replacing each one of them by writing individual code.
+
+```javascript
+ if (window.devicePixelRatio > 1)
+ ```
+
+References :
+* https://www.sitepoint.com/css-techniques-for-retina-displays/
+
+
+### 42. Is there any reason you'd want to use translate() instead of absolute positioning, or vice-versa? And why?
+
+Yes, translate do not cause the browser to trigger repaint and layout and instead only acts on the compositor. I tend to only ever use translate/transform nowadays, and only using absolute positioning for an elements initial position. I'll then translate it from that initial position for better performance.
+
+When using translate instead of positioning, you don't have to worry about breaking page flow. You won't have to mess with margins and paddings regardless of elements initial positioning (static, relative).
+
+Also browser support looks pretty good (except IE8), just remember that transitions are supposed to enhance user experience while content stays the same. Older browsers will still render all elements properly, but simply ignore fancy animations so no harm done.
+
+References :
+* [https://www.paulirish.com/2012/why-moving-elements-with-translate-is-better-than-posabs-topleft/](https://www.paulirish.com/2012/why-moving-elements-with-translate-is-better-than-posabs-topleft/)
+
+
+
+### 43. How to align 3 divs (left/center/right) inside another div?
+```css
+#container{width:100%;}
+#div1{float:left;width:100px;height:100px; background-color:blue;}
+#div2{float:right;width:100px;height:100px; background-color:green;}
+#div3{margin:0 auto;width:100px;height:100px; background-color:purple;}
+```
+```html
+<div id="container">
+  <div id="div1">div1</div>
+  <div id="div2">div2</div>
+  <div id="div3">div3</div>
+</div>
+```
+
