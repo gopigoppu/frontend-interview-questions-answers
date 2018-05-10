@@ -739,3 +739,354 @@ References :
 
 
 
+### 23. How to make a deep copy in javascript?
+
+JS ==>
+```javascript
+var newObject = JSON.parse(JSON.stringify(oldObject));
+```
+Note: Beware using the JSON.parse(JSON.stringify(obj)) method on Date objects - JSON.stringify(new Date()) returns a string representation of the date in ISO format, which JSON.parse() doesn't convert back to a Date object. [See this answer for more details.](https://stackoverflow.com/a/11491993)
+
+So, The Date object's constructor can take a date string, so you can turn those string values back into dates by doing:
+
+```javascript
+var x = new Date(JSON.parse(JSON.stringify(new Date())));
+```
+
+Additionally, please note that, in Chrome 65 at least, native cloning is not the way to go. According to this [JSPerf](https://jsperf.com/efficient-deep-cloning-teqniques), performing native cloning by creating a new function is nearly 800x slower than using JSON.stringify which is incredibly fast all the way across the board
+
+jQuery ==>
+```javascript
+// Shallow copy
+var newObject = jQuery.extend({}, oldObject);
+
+// Deep copy
+var newObject = jQuery.extend(true, {}, oldObject);
+```
+
+References :
+* [https://stackoverflow.com/questions/122102/what-is-the-most-efficient-way-to-deep-clone-an-object-in-javascript](https://stackoverflow.com/questions/122102/what-is-the-most-efficient-way-to-deep-clone-an-object-in-javascript)
+* [https://stackoverflow.com/questions/11491938/issues-with-date-when-using-json-stringify-and-json-parse](https://stackoverflow.com/questions/11491938/issues-with-date-when-using-json-stringify-and-json-parse)
+
+
+### 24. Difference between shallow copy and deep copy in javascript?
+
+* Shallow copy
+
+  Shallow copy is a bit-wise copy of an object. A new object is created that has an exact copy of the values in the original object. If any of the fields of the object are references to other objects, just the reference addresses are copied i.e., only the memory address is copied. 
+
+```javascript
+let a = { aa : 1 };
+let b = a;
+b.aa = 2;
+console.log(a.aa); // 2
+```
+
+* Deep copy
+
+  A deep copy copies all fields, and makes copies of dynamically allocated memory pointed to by the fields. A deep copy occurs when an object is copied along with the objects to which it refers.
+
+```javascript
+let a = { aa : 1 };
+let b = JSON.parse(JSON.stringify(a));
+b.aa = 2;
+console.log(a.aa); // 1
+```
+
+References : 
+* [https://we-are.bookmyshow.com/understanding-deep-and-shallow-copy-in-javascript-13438bad941c](https://we-are.bookmyshow.com/understanding-deep-and-shallow-copy-in-javascript-13438bad941c)
+* [https://stackoverflow.com/questions/184710/what-is-the-difference-between-a-deep-copy-and-a-shallow-copy](https://stackoverflow.com/questions/184710/what-is-the-difference-between-a-deep-copy-and-a-shallow-copy)
+
+
+### 25. How to prevent click action on parent element when user clicks on child element, while both parent and child having click functions?
+
+Here, [Event bubbling and Event capturing](https://stackoverflow.com/questions/4616694/what-is-event-bubbling-and-capturing) plays a role. 
+
+Using `return false;` or `e.stopPropogation();` will not allow further code to execute. It will stop flow at this point itself.
+
+```javascript
+$("#clickable a").click(function(e) {
+   e.stopPropagation();
+});
+ ```
+ ***stopPropagation** method prevents the event from bubbling up the DOM tree, preventing any parent handlers from being notified of the event.*
+
+References :
+* [https://www.w3schools.com/jquery/event_stoppropagation.asp](https://www.w3schools.com/jquery/event_stoppropagation.asp)
+
+
+### 26. What is the difference between Http post and get?
+
+Here is the key point of GET request
+
+* GET requests can be cached
+* GET requests remain in the browser history
+* GET requests can be bookmarked
+* GET requests should never be used when dealing with sensitive data
+* GET requests have length restrictions
+* GET requests should be used only to retrieve data
+
+Here is the key point of POST request
+
+* POST requests are never cached
+* POST requests do not remain in the browser history
+* POST requests cannot be bookmarked
+* POST requests have no restrictions on data length
+
+References :
+* [https://stackoverflow.com/questions/504947/when-should-i-use-get-or-post-method-whats-the-difference-between-them](https://stackoverflow.com/questions/504947/when-should-i-use-get-or-post-method-whats-the-difference-between-them)
+* [https://www.w3schools.com/tags/ref_httpmethods.asp](https://www.w3schools.com/tags/ref_httpmethods.asp)
+
+
+### 27. How do you find event type when some event happens?
+
+The `Event.type` read-only property returns a string containing the event's type. It is set when the event is constructed and is the name commonly used to refer to the specific event, such as click, load, or error
+
+```javascript
+function getEvtType(evt) {
+            currEvent = evt.type;
+            console.log(currEvent);
+        }
+```
+
+References :
+* [https://developer.mozilla.org/en-US/docs/Web/API/Event/type](https://developer.mozilla.org/en-US/docs/Web/API/Event/type)
+
+
+
+### 28. Explain about event bubbling and event capturing?
+
+Event bubbling and capturing are two ways of event propagation in the HTML DOM API, when an event occurs in an element inside another element, and both elements have registered a handle for that event. The event propagation mode determines in which order the elements receive the event.
+
+***Event capturing***
+
+When you use event capturing
+```
+               | |
+---------------| |-----------------
+| element1     | |                |
+|   -----------| |-----------     |
+|   |element2  \ /          |     |
+|   -------------------------     |
+|        Event CAPTURING          |
+-----------------------------------
+```
+the event handler of element1 fires first, the event handler of element2 fires last.
+
+Capturing is also called "trickling", which helps remember the propagation order:
+
+```trickle down, bubble up```
+
+***Event bubbling***
+
+When you use event bubbling
+```
+               / \
+---------------| |-----------------
+| element1     | |                |
+|   -----------| |-----------     |
+|   |element2  | |          |     |
+|   -------------------------     |
+|        Event BUBBLING           |
+-----------------------------------
+```
+the event handler of element2 fires first, the event handler of element1 fires last.
+
+
+We can use the `addEventListener(type, listener, useCapture)` to register event handlers for in either bubbling (default) or capturing mode. To use the capturing model pass the third argument as `true`
+
+```javascript
+element1.addEventListener('click',doSomething2,true)
+element2.addEventListener('click',doSomething,false)
+```
+To see the detailed explanation about how it works, [Check HERE](https://www.quirksmode.org/js/events_order.html)
+
+
+References :
+* [https://stackoverflow.com/questions/4616694/what-is-event-bubbling-and-capturing](https://stackoverflow.com/questions/4616694/what-is-event-bubbling-and-capturing)
+* [https://www.quirksmode.org/js/events_order.html](https://www.quirksmode.org/js/events_order.html)
+
+
+
+### 29. Explain about event delegation?
+
+Event delegation allows us to attach a single event listener, to a parent element, that will fire for all descendants matching a selector, whether those descendants exist now or are added in the future.
+
+When an event is triggered on an element, the following occurs:
+
+*The event is dispatched to its target  EventTarget and any event listeners found there are triggered. Bubbling events will then trigger any additional event listeners found by following the EventTarget's parent chain upward, checking for any event listeners registered on each successive EventTarget. This upward propagation will continue up to and including the Document.*
+
+Event bubbling provides the foundation for event delegation in browsers. Now you can bind an event handler to a single parent element, and that handler will get executed whenever the event occurs on any of its child nodes (and any of their children in turn). This is event delegation. Here's an example of it in practice
+
+```html
+<ul onclick="alert(event.type + '!')">
+    <li>One</li>
+    <li>Two</li>
+    <li>Three</li>
+</ul>
+```
+
+***So what's the benefit?***
+
+Imagine you now have a need to dynamically add new `<li>` items to the above list via DOM manipulation:
+```javascript
+var newLi = document.createElement('li');
+newLi.innerHTML = 'Four';
+myUL.appendChild(newLi);
+```
+Without using event delegation you would have to "rebind" the "onclick" event handler to the new `<li>` element, in order for it to act the same way as its siblings. With event delegation you don't need to do anything. Just add the new `<li>` to the list and you're done.
+
+Another benefit to event delegation is that the total memory footprint used by event listeners goes down (since the number of event bindings go down). It may not make much of a difference to small pages that unload often (i.e. user's navigate to different pages often).
+
+References :
+* [https://stackoverflow.com/questions/1687296/what-is-dom-event-delegation](https://stackoverflow.com/questions/1687296/what-is-dom-event-delegation)
+* [https://learn.jquery.com/events/event-delegation/](https://learn.jquery.com/events/event-delegation/)
+* [https://davidwalsh.name/event-delegate](https://davidwalsh.name/event-delegate)
+
+
+
+### 30. Explain about how `this` works in JS?
+
+A function's this keyword behaves a little differently in JavaScript compared to other languages. It also has some differences between strict mode and non-strict mode.
+
+Please refer the links for deep understanding about `this` in JS.
+
+References :
+* [https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this)
+* [https://stackoverflow.com/questions/3127429/how-does-the-this-keyword-work](https://stackoverflow.com/questions/3127429/how-does-the-this-keyword-work)
+* [http://javascriptissexy.com/understand-javascripts-this-with-clarity-and-master-it/](http://javascriptissexy.com/understand-javascripts-this-with-clarity-and-master-it/)
+
+
+### 31. What is the difference between `null` and `undefined` and `undeclared` ?
+
+***undefined*** is a variable that has been declared but no value exists and is a type of itself ‘undefined’.
+
+***null*** is a value of a variable and is a type of object. It can be assigned to a variable as a representation of no value
+
+***undeclared*** variables is a variable that has been declared without block level scope keyword(such as 'var', 'let', 'const'). When former code is executed, undeclared variables are created as global variable and they are configurable (ex. can be deleted).
+
+```javascript
+typeof(a) === undefined;   // true
+a === undefined;           // ReferenceError: a is not defined
+
+var b;
+typeof(b) === undefined;   // true
+b === undefined;           // true
+
+var c = null;
+typeof(c)           // object
+
+null == undefined   // true
+null === undefined  // false
+```
+
+References : 
+* [http://fran.cesco.io/blog/2015/javascript-interview-questions/What-is-the-difference-between-undefined-undeclared-and-null](http://fran.cesco.io/blog/2015/javascript-interview-questions/What-is-the-difference-between-undefined-undeclared-and-null)
+
+
+
+### 32. What are the ES6 new features?
+
+Listing top features here ==>
+
+* Default Parameters 
+* Template Literals 
+* Multi-line Strings 
+* Destructuring Assignment 
+* Enhanced Object Literals 
+* Arrow Functions 
+* Promises 
+* Block-Scoped Constructs Let and Const
+* Classes 
+* Modules
+
+Check links for detailed explanations about all other features also.
+
+
+References : 
+* [http://exploringjs.com/es6/ch_overviews.html](http://exploringjs.com/es6/ch_overviews.html)
+* [https://webapplog.com/es6/](https://webapplog.com/es6/)
+* [https://github.com/lukehoban/es6features](https://github.com/lukehoban/es6features)
+* [http://es6-features.org](http://es6-features.org)
+
+
+### 33. What's the difference between an `attribute` and a `property`?
+
+In the specific context of `HTML / Javascript` the terms get confused because the HTML representation of a DOM element has `attributes` (that being the term used in XML for the `key/value` pairs contained within a tag) but when represented as a `JavaScript` object those `attributes` appear as `object properties`.
+
+To further confuse things, changes to the properties will typically update the attributes.
+
+For example, changing the `element.href` `property` will update the `href` `attribute` on the element, and that'll be reflected in a call to `element.getAttribute('href')`.
+
+However if you subsequently read that property, it will have been normalised to an absolute URL, even though the attribute might be a relative URL!
+
+References :
+* [https://stackoverflow.com/a/10673539](https://stackoverflow.com/a/10673539)
+
+
+### 34. What is '`use strict`' ? Why do we need to use it?
+
+"use strict"; Defines that JavaScript code should be executed in "strict mode".
+
+Strict mode applies to entire scripts or to individual functions. It doesn't apply to block statements enclosed in {} braces; attempting to apply it to such contexts does nothing. 
+
+Declared at the beginning of a script, it has global scope (all code in the script will execute in strict mode):
+
+```javascript
+"use strict";
+myFunction();
+
+function myFunction() {
+    y = 3.14;   // This will also cause an error because y is not declared
+}
+```
+Features :
+
+* Eliminates some JavaScript silent errors by changing them to throw errors.
+* Fixes mistakes that make it difficult for JavaScript engines to perform optimizations: strict mode code can sometimes be made to run faster than identical code that's not strict mode.
+* Prohibits some syntax likely to be defined in future versions of ECMAScript.
+
+References :
+* [https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode)
+* [https://www.w3schools.com/js/js_strict.asp](https://www.w3schools.com/js/js_strict.asp)
+
+
+
+### 35. Explaing about `linting`?
+
+Linting is the process of checking the source code for Programmatic as well as Stylistic errors. This is most helpful in identifying some common and uncommon mistakes that are made during coding.
+
+In other words, it’s something that can AUTOMATICALLY find the dumb mistakes we all make, so you can fix them without thinking. It’ll make your code break less and prevent some very confusing problems.
+
+Pros :
+* It prevents certain types of bugs, including a few catastrophic ones.
+* It saves you time.
+* It makes your code better.
+* It’s easy.
+* It’ll get you laid more.
+
+Lot of tools available for linting in JS such as `JSLint, JSHint, JSCS, ESLint`.
+
+References :
+* [http://mikecavaliere.com/javascript-linting-what-developers-need-to-know/](http://mikecavaliere.com/javascript-linting-what-developers-need-to-know/)
+* [https://www.sitepoint.com/comparison-javascript-linting-tools/](https://www.sitepoint.com/comparison-javascript-linting-tools/)
+
+
+
+### 36. What is the difference between `===` and `==`? Which situation will prefer one among other?
+
+* == attempts to convert the values to the same type before testing if they're the same. "5" == 5
+* === does not do this; it requires objects to be of the same type to be equal. "5" !== 5
+
+In this case, the result is:
+
+* x == undefined will be true if x is undefined or null.
+* x === undefined will only be true if x is undefined.
+
+You should prefer the first method if you'd like `undefined` and `null` to be treated equivalently.
+
+References :
+* [https://stackoverflow.com/a/8132401](https://stackoverflow.com/a/8132401)
+* [https://stackoverflow.com/questions/359494/which-equals-operator-vs-should-be-used-in-javascript-comparisons](https://stackoverflow.com/questions/359494/which-equals-operator-vs-should-be-used-in-javascript-comparisons)
+
+
