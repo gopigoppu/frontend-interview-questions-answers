@@ -36,4 +36,5 @@
 34. [What is '`use strict`' ? Why do we need to use it?](/JS-Questions-Answers/answers#34-what-is-use-strict--why-do-we-need-to-use-it)
 35. [Explaing about `linting`?](/JS-Questions-Answers/answers#35-explaing-about-linting)
 36. [What is the difference between `===` and `==`? Which situation will prefer one among other?](/JS-Questions-Answers/answers#36-what-is-the-difference-between--and--which-situation-will-prefer-one-among-other)
-
+37. What is the difference between Observer pattern and Pub-Sub pattern?
+38. Explain some of the design patterns that you used?

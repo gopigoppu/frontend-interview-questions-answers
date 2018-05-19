@@ -1090,3 +1090,30 @@ References :
 * [https://stackoverflow.com/questions/359494/which-equals-operator-vs-should-be-used-in-javascript-comparisons](https://stackoverflow.com/questions/359494/which-equals-operator-vs-should-be-used-in-javascript-comparisons)
 
 
+### 37. What is the difference between Observer pattern and Pub-Sub pattern?
+
+* The observer pattern is a software design pattern in which an object, called the subject, maintains a list of its dependents, called observers, and notifies them automatically of any state changes, usually by calling one of their methods.
+
+* In ‘Publisher-Subscriber’ pattern, senders of messages, called publishers, do not program the messages to be sent directly to specific receivers, called subscribers.
+
+
+![https://cdn-images-1.medium.com/max/1600/1*NcicKEqwUaI8VEc-Ejk6Dg.jpeg](https://cdn-images-1.medium.com/max/1600/1*NcicKEqwUaI8VEc-Ejk6Dg.jpeg)
+
+References :
+* [https://hackernoon.com/observer-vs-pub-sub-pattern-50d3b27f838c](https://hackernoon.com/observer-vs-pub-sub-pattern-50d3b27f838c)
+
+
+### 38. Explain some of the design patterns that you used?
+
+There are lot of design patterns available in software designing. Refere the link below for detailed information. I have listed here some of the frequently used design pattern in frontend techs.
+
+* [Singleton Pattern](https://en.wikipedia.org/wiki/Singleton_pattern)
+* [Factory method pattern](https://en.wikipedia.org/wiki/Factory_method_pattern)
+* [Publish–subscribe pattern](https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern)
+* [Adapter Design Pattern](https://en.wikipedia.org/wiki/Adapter_pattern)
+* [Observer Design Pattern](https://en.wikipedia.org/wiki/Observer_pattern)
+
+
+References :
+* [https://sourcemaking.com/design_patterns](https://sourcemaking.com/design_patterns)
+
