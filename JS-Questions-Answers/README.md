@@ -38,3 +38,4 @@
 36. [What is the difference between `===` and `==`? Which situation will prefer one among other?](/JS-Questions-Answers/answers#36-what-is-the-difference-between--and--which-situation-will-prefer-one-among-other)
 37. [What is the difference between Observer pattern and Pub-Sub pattern?](/JS-Questions-Answers/answers#37-what-is-the-difference-between-observer-pattern-and-pub-sub-pattern)
 38. [Explain some of the design patterns that you used?](/JS-Questions-Answers/answers#38-explain-some-of-the-design-patterns-that-you-used)
+39. What is SessionState and ViewState? Difference between SessionState and ViewState?
