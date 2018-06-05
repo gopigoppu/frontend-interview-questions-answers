@@ -1,3 +1,4 @@
+
 # JS Questions Answers
 
 1. [What is closure in javascript? Give an example.](/JS-Questions-Answers/answers#1-what-is-closure-in-javascript-give-an-example)
@@ -39,3 +40,4 @@
 37. [What is the difference between Observer pattern and Pub-Sub pattern?](/JS-Questions-Answers/answers#37-what-is-the-difference-between-observer-pattern-and-pub-sub-pattern)
 38. [Explain some of the design patterns that you used?](/JS-Questions-Answers/answers#38-explain-some-of-the-design-patterns-that-you-used)
 39. What is SessionState and ViewState? Difference between SessionState and ViewState?
+40. What is the difference between .map, .every, and .forEach?
