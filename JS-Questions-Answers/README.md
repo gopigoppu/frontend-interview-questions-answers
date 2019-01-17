@@ -50,5 +50,5 @@
 47. What does “favor object composition over class inheritance” mean?
 48. What are two-way data binding and one-way data flow, and how are they different?
 49. What are the pros and cons of monolithic vs microservice architectures?
-50. <a href="https://medium.com/javascript-scene/10-interview-questions-every-javascript-developer-should-know-6fa6bdf5ad95" target="_blank">What is asynchronous programming, and why is it important in JavaScript?</a>
+50. [What is asynchronous programming, and why is it important in JavaScript?](https://medium.com/javascript-scene/10-interview-questions-every-javascript-developer-should-know-6fa6bdf5ad95)
 
