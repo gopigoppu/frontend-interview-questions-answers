@@ -41,7 +41,7 @@
 38. [Explain some of the design patterns that you used?](/JS-Questions-Answers/answers#38-explain-some-of-the-design-patterns-that-you-used)
 39. What is SessionState and ViewState? Difference between SessionState and ViewState?
 40. What is the difference between .map, .every, and .forEach?
-[41. Can you name two programming paradigms important for JavaScript app developers?
+[ 41. Can you name two programming paradigms important for JavaScript app developers?
 42. What is functional programming?
 43. What is the difference between classical inheritance and prototypal inheritance?
 44. What are the pros and cons of functional programming vs object-oriented programming?
@@ -50,5 +50,5 @@
 47. What does “favor object composition over class inheritance” mean?
 48. What are two-way data binding and one-way data flow, and how are they different?
 49. What are the pros and cons of monolithic vs microservice architectures?
-50. What is asynchronous programming, and why is it important in JavaScript?](https://medium.com/javascript-scene/10-interview-questions-every-javascript-developer-should-know-6fa6bdf5ad95){:target="_blank"}
+50. What is asynchronous programming, and why is it important in JavaScript? ](https://medium.com/javascript-scene/10-interview-questions-every-javascript-developer-should-know-6fa6bdf5ad95){:target="_blank"}
 
