@@ -1117,3 +1117,19 @@ There are lot of design patterns available in software designing. Refere the lin
 References :
 * [https://sourcemaking.com/design_patterns](https://sourcemaking.com/design_patterns)
 
+
+### 39. What is SessionState and ViewState? Difference between SessionState and ViewState?
+
+Session State contains information that is pertaining to a specific session (by a particular client/browser/machine) with the server. It's a way to track what the user is doing on the site.. across multiple pages...amid the statelessness of the Web. e.g. the contents of a particular user's shopping cart is session data. Cookies can be used for session state.
+
+View State on the other hand is information specific to particular web page. It is stored in a hidden field so that it isn't visible to the user. It is used to maintain the user's illusion that the page remembers what he did on it the last time - dont give him a clean page every time he posts back
+
+| ViewState | SessionState |
+|---------- | ------------ |
+| Maintained at page level only.	| Maintained at session level. |
+| View state can only be visible from a single page and not multiple pages.	| Session state value availability is across all pages available in a user session. |
+| It will retain values in the event of a postback operation occurring. |	In session state, user data remains in the server. Data is available to user until the browser is closed or there is session expiration. |
+| Information is stored on the client’s end only. |	Information is stored on the server. |
+| used to allow the persistence of page-instance-specific data. |	used for the persistence of user-specific data on the server’s end. |
+| ViewState values are lost/cleared when new page is loaded. |	SessionState can be cleared by programmer or user or in case of timeouts. |
+
